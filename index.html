@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <style>
         * {
             box-sizing: border-box;
@@ -70,7 +71,7 @@
         }
 
         input:checked ~ label {
-            box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.13), 0 5px 8px rgba(0, 0, 0, 0.35), 0 3px 10px 4px red;
+            box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.13), 0 5px 8px rgba(0, 0, 0, 0.35), 0 3px 10px 4px green;
             color: #9abb82;
         }
 
@@ -120,7 +121,7 @@
 
     var fb = new Firebase("https://intense-fire-5133.firebaseio.com");
 
-    function kjor(evt){
+    function kjor(){
         var check = $('#btn').is(':checked');
         console.log(check)
 

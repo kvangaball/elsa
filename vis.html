@@ -2,39 +2,192 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <style>
+        .effect {
+            display: none;
+        }
+
+        .effect.active{
+            display: block;
+        }
+
+        #global-container {
+            bottom: 0;
+            font-size: 1.5em;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #global-container .container {
+
+            font-weight: bold;
+            margin: 50px auto;
+            padding: 16px 32px 16px;
+            position: relative;
+            width: 70%;
+            z-index: 1200;
+            text-align: center;
+        }
+
+        h3{
+            font-size: 3em;
+        }
+
+    </style>
 </head>
+
 
 <body>
 
+<section id="global-container">
 
-<h1>ELSA ER:</h1>
-<div style="display: none" id="paa">PÅ</div>
-<div style="display: none" id="av">AV</div>
+    <div class="container" id="paa">
+
+        <div class="effect">
+            <h3>Hjelp!</h3>
+        </div>
+        <div class="effect" data-time="1000">
+            <h3>Noen trykket på start</h3>
+        </div>
+        <div class="effect" data-time="1000">
+            <h3>Noen trykket på start</h3>
+            <h3>.</h3>
+        </div>
+        <div class="effect" data-time="1000">
+            <h3>Noen trykket på start</h3>
+            <h3>..</h3>
+        </div>
+        <div class="effect" data-time="1000">
+            <h3>Noen trykket på start</h3>
+            <h3>...</h3>
+        </div>
+        <div class="effect" data-time="1000">
+            <h3>Noen trykket på start</h3>
+            <h3>....</h3>
+        </div>
+        <div class="effect" data-time="4000">
+            <h3>Det kan bare være...</h3>
+        </div>
+        <div class="effect" data-time="4000">
+            <h3>SKATTEDIREKTØREN</h3>
+        </div>
+        <div class="effect">
+            <h3>HOLTE</h3>
+        </div>
+        <div class="effect" data-time="4000">
+            <h3>HANS CHRISTIAN HOLTE</h3>
+        </div>
+        <div class="effect">
+            <h3>Bare en ting å gjøre</h3>
+        </div>
+        <div class="effect">
+            <h3>Vi får starte utrullingsmaskineriet!</h3>
+        </div>
+        <div class="effect">
+            <h3>Henter koden fra git</h3>
+        </div>
+            <div class="effect">
+            <h3>Kompilerer</h3>
+        </div>
+        <div class="effect">
+            <h3>Kjører automatiske tester</h3>
+        </div>
+        <div class="effect">
+            <h3>Venter på test</h3>
+        </div>
+        <div class="effect ">
+            <h3>Ringer til Grimstad</h3>
+        </div>
+        <div class="effect">
+            <h3>Grimstad sier at alt er klart</h3>
+        </div>
+        <div class="effect">
+            <h3>... modem dials</h3>
+        </div>
+        <div class="effect" data-time="2500">
+            <img src="websurfin.gif" />
+        </div>
+
+        <div class="effect">
+            <h3>ELSA er klar for hordene!</h3>
+        </div>
+        <div class="effect" data-time="4000">
+            <h3>Da er det bare å lene seg godt tilbake og nyte magien!</h3>
+        </div>
+        <div class="effect" data-time="5000">
+            <img src="elsa.gif" />
+        </div>
+        <div class="effect box last">
+            <h3><a href="https://skatt.skatteetaten.no/web/elsa/">Næringsrapport Skatt 2014 er herved erklært for åpnet</a></h3>
+        </div>
+
+    </div>
+    <div class="container" style="display: none" id="av">
+        <h3>Næringsrapport Skatt 2014 er skrudd av</h3>
+    </div>
+
+</section>
 
 
 <script type="application/javascript">
 
     var fb = new Firebase("https://intense-fire-5133.firebaseio.com");
-    var tid = Date.now();
-
+    var status = "ingen";
 
     fb.on("value", function(data) {
-        var startet = data.val() ? data.val().kjorer : "";
+        var erPaa = data.val() ? data.val().kjorer : "";
 
-
-        if(startet){
-            $('#paa').show();
-            $('#av').hide();
+        if(erPaa){
+            start();
         } else {
+
             $('#paa').hide();
+            $('#starter').hide();
             $('#av').show();
+
         }
-
-
     });
 
+    function start(){
+        $('#av').hide();
+        $('#paa').show();
+
+        aapneNesteEffekt();
+    }
+
+    function aapneNesteEffekt(){
+        var aktive = $('.effect.active');
+        var neste, aktiv;
+
+
+        if(aktive.length > 0){
+            aktiv = aktive.first();
+            aktiv.removeClass('active');
+            neste = aktiv.next()
+        } else {
+            neste = $('.effect').first();
+        }
+
+        neste.addClass('active');
+        var tid = neste.attr('data-time');
+
+        timeout = 1000;
+
+        if(tid){
+            timeout = tid;
+        }
+
+        if(!neste.hasClass('last')){
+            window.setTimeout(aapneNesteEffekt, timeout);
+        }
+    }
 
 
 
