@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+
+<body>
+
+
+<h1>ELSA ER:</h1>
+<div style="display: none" id="paa">PÅ</div>
+<div style="display: none" id="av">AV</div>
+
+
+<script type="application/javascript">
+
+    var fb = new Firebase("https://intense-fire-5133.firebaseio.com");
+    var tid = Date.now();
+
+
+    fb.on("value", function(data) {
+        var startet = data.val() ? data.val().kjorer : "";
+
+
+        if(startet){
+            $('#paa').show();
+            $('#av').hide();
+        } else {
+            $('#paa').hide();
+            $('#av').show();
+        }
+
+
+    });
+
+
+
+
+</script>
+
+</body>
+
+</html>
