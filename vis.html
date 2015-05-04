@@ -78,7 +78,7 @@
         <div class="effect" data-time="4000">
             <h3>SKATTEDIREKTØREN</h3>
         </div>
-        <div class="effect">
+        <div class="effect" data-time="4000">
             <h3>HOLTE</h3>
         </div>
         <div class="effect" data-time="4000">
@@ -101,6 +101,9 @@
         </div>
         <div class="effect">
             <h3>Venter på test</h3>
+        </div>
+        <div class="effect">
+            <h3>Sender koden til drift</h3>
         </div>
         <div class="effect ">
             <h3>Ringer til Grimstad</h3>
@@ -141,13 +144,16 @@
     var fb = new Firebase("https://intense-fire-5133.firebaseio.com");
     var status = "ingen";
 
+    console.log("Starter app");
     fb.on("value", function(data) {
+        console.log("Data er mottatt");
         var erPaa = data.val() ? data.val().kjorer : "";
 
         if(erPaa){
+            console.log("Skiten er på");
             start();
         } else {
-
+            console.log("Skiten er av");
             $('#paa').hide();
             $('#starter').hide();
             $('#av').show();
@@ -157,6 +163,7 @@
 
     function start(){
         $('#av').hide();
+        $('.effect.active').removeClass('active');
         $('#paa').show();
 
         aapneNesteEffekt();
@@ -178,7 +185,7 @@
         neste.addClass('active');
         var tid = neste.attr('data-time');
 
-        timeout = 1000;
+        timeout = 2000;
 
         if(tid){
             timeout = tid;
