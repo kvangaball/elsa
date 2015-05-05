@@ -79,7 +79,7 @@
 
     <div class="container" id="paa">
 
-        <div class="effect" data-time="2000">
+        <div class="effect ding" data-time="3000">
             <h3>Oj!</h3>
         </div>
         <div class="effect" data-time="2000">
@@ -116,19 +116,19 @@
             <h3>Sjekker at alt er i henhold til postlista</h3>
         </div>
         <div class="effect">
-            <h3>Bygger leveransepakke</h3>
+            <h3>Lager leveransepakke</h3>
         </div>
         <div class="effect">
-            <h3>Deployer til AT</h3>
+            <h3>Deployer leveransepakke til AT</h3>
         </div>
         <div class="effect" data-time="3000">
-            <h3>Venter på at Heidi sier go</h3>
+            <h3>Venter på at Heidi sier ok</h3>
         </div>
         <div class="effect" data-time="3000">
             <img src="images/heidi_go.png" height="400px"/>
         </div>
         <div class="effect">
-            <h3>Heidi sa go!</h3>
+            <h3>Heidi sa OK!</h3>
         </div>
         <div class="effect modemstart"  data-time="10000">
             <h3>Sender leveransepakken til drift i Grimstad</h3>
@@ -252,6 +252,9 @@
             timeout = tid;
         }
 
+        if(neste.hasClass('ding')){
+            document.getElementById('ding_mp3').play();
+        }
         if(neste.hasClass('modemstart')){
             document.getElementById('modem_mp3').play();
         }
@@ -289,6 +292,7 @@
     <img src="images/small-glow.png" id="small-glow" />
 
     <audio id="modem_mp3" src="modem.mp3" type="audio/mpeg" />
+    <audio id="ding_mp3" src="ching.mp3" type="audio/mpeg" />
     <audio id="fireworks_mp3" src="fireworks.mp3" type="audio/mpeg" />
 
 </aside>
