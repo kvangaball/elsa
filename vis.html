@@ -7,6 +7,7 @@
     <script src="js/jquery-2.1.4.min.js"></script>
 
     <link href="css/fireworks.css" rel="stylesheet">
+    <link href="css/knapp.css" rel="stylesheet"/>
 
     <style>
 
@@ -34,7 +35,7 @@
         #global-container .container {
 
             font-weight: bold;
-            margin: 25% auto;
+            margin: 20% auto;
             padding: 16px 32px 16px;
             position: relative;
             width: 70%;
@@ -47,8 +48,8 @@
         }
 
 
-        h3{
-            font-size: 5em;
+        h1,h3{
+            font-size: 4em;
         }
 
     </style>
@@ -57,15 +58,32 @@
 
 <body>
 
+<section>
+    <div class="container">
+        <div class=round>
+            <input type=checkbox id=onoff name=onoff onclick="kjor()"/>
+            <div class=back>
+                <label class=but for=onoff>
+                    <span class=off>På</span>
+                    <span class=on>Av</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="global-container">
 
     <div class="container" id="paa">
 
+        <div class="effect" data-time="2000">
+
+        </div>
         <div class="effect">
-            <h3>Hjelp!</h3>
+            <h3>Oj!</h3>
         </div>
         <div class="effect" data-time="2000">
-            <h3>Noen trykket på KNAPPEN</h3>
+            <h3>Noen prøver å skru på ELSA</h3>
         </div>
         <div class="effect" data-time="2000">
             <h3>Det kan bare være...</h3>
@@ -80,10 +98,10 @@
             <h3>HANS CHRISTIAN HOLTE</h3>
         </div>
         <div class="effect">
-            <h3>Det er bare en ting å gjøre</h3>
+            <h3>Da er det bare en ting å gjøre</h3>
         </div>
         <div class="effect">
-            <h3>Vi får starte ELSA!</h3>
+            <h3>Vi får rulle ut ELSA!</h3>
         </div>
         <div class="effect">
             <h3>Henter koden fra git</h3>
@@ -103,8 +121,11 @@
         <div class="effect" data-time="3000">
             <h3>Venter på at Heidi sier go</h3>
         </div>
+        <div class="effect" data-time="3000">
+            <img src="images/heidi_go.png" height="400px"/>
+        </div>
         <div class="effect">
-            <h3>Heidi sier ok!</h3>
+            <h3>Heidi sa go!</h3>
         </div>
         <div class="effect modemstart"  data-time="10000">
             <h3>Sender leveransepakken til drift i Grimstad</h3>
@@ -121,19 +142,19 @@
         <div class="effect">
             <h3>Grimstad sier at ELSA er live and ready for traffic</h3>
         </div>
-        <div class="effect modemstop" data-time="2500">
+        <div class="effect" data-time="2500">
             <img src="websurfin.gif" height="400px"/>
         </div>
-        <div class="effect">
+        <div class="effect modemstop">
             <h3>ELSA er klar for hordene!</h3>
         </div>
         <div class="effect" data-time="3000">
             <h3>Da er det bare å lene seg godt tilbake og nyte magien!</h3>
         </div>
-        <div class="effect" data-time="4500">
+        <div class="effect fireworks" data-time="4500">
             <img src="elsa.gif" height="400px" />
         </div>
-        <div class="effect box last">
+        <div class="effect box">
             <h3><a href="https://skatt.skatteetaten.no/web/elsa/">ELSA er herved erklært for åpnet!!</a></h3>
         </div>
 
@@ -157,20 +178,32 @@
         console.log("Data er mottatt");
         var erPaa = data.val() ? data.val().kjorer : "";
 
+        skrupaa(erPaa);
+    });
+
+    $('body').click(function(){
+        skrupaa(!running)
+    });
+
+    function skrupaa(erPaa){
         if(erPaa){
             console.log("Skiten er på");
+            $('#onoff').prop('checked', true);
+            $('.round').addClass('green');
+
             start();
         } else {
             console.log("Skiten er av");
+            $('#onoff').prop('checked', false);
+            $('.round').removeClass('green');
+
             running = false;
             $('#paa').hide();
             $('#starter').hide();
             $('#av').show();
-
         }
-    });
+    }
 
-    $('body').click(start);
 
     function start(){
         if(running){
@@ -220,13 +253,15 @@
         if(neste.hasClass('modemstop')){
             document.getElementById('modem_mp3').pause();
         }
+        if(neste.hasClass('fireworks')){
+            document.getElementById('fireworks_mp3').play();
+        }
 
         if(!neste.hasClass('last')){
             window.setTimeout(aapneNesteEffekt, timeout);
         } else {
             Fireworks.initialize();
 
-            document.getElementById('fireworks_mp3').play();
             window.setTimeout(fyr, 2000);
         }
     }

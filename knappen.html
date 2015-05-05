@@ -58,9 +58,11 @@
         var erPaa = data.val() ? data.val().kjorer : "";
 
         if(erPaa){
-            $('#onoff').prop('checked', true)
+            $('#onoff').prop('checked', true);
+            $('.round').addClass('green');
         } else {
-            $('#onoff').prop('checked', false)
+            $('#onoff').prop('checked', false);
+            $('.round').removeClass('green');
         }
     });
 
@@ -74,8 +76,6 @@
             $('.round').removeClass('green');
         }
 
-
-        var tid = Date.now();
         fb.set({ kjorer: check});
     }
 
