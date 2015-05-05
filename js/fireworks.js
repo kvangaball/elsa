@@ -55,7 +55,7 @@ var Fireworks = (function() {
     setMainCanvasDimensions();
 
     // add the canvas in
-    document.body.appendChild(mainCanvas);
+    document.getElementById('fireworks').appendChild(mainCanvas);
     document.addEventListener('mouseup', createFirework, true);
     document.addEventListener('touchend', createFirework, true);
 

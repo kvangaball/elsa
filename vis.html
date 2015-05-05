@@ -20,6 +20,7 @@
         body {
             color: white;
             font-family: 'Roboto', sans-serif;
+            background: #000;
         }
 
 
@@ -57,6 +58,8 @@
 
 
 <body>
+
+<section id="fireworks"></section>
 
 <section>
     <div class="container">
@@ -104,7 +107,7 @@
             <h3>Vi får rulle ut ELSA!</h3>
         </div>
         <div class="effect">
-            <h3>Henter koden fra git</h3>
+            <h3>Henter koden</h3>
         </div>
         <div class="effect">
             <h3>Henter veiledningstekster</h3>
@@ -113,7 +116,7 @@
             <h3>Sjekker at alt er i henhold til postlista</h3>
         </div>
         <div class="effect">
-            <h3>Kjører 5233 automatiske tester</h3>
+            <h3>Kjører 5233,5 automatiske tester</h3>
         </div>
         <div class="effect">
             <h3>Bygger leveransepakke</h3>
@@ -200,6 +203,7 @@
             running = false;
             $('#paa').hide();
             $('#starter').hide();
+            $('.effect').hide();
             $('#av').show();
         }
     }
