@@ -9,22 +9,21 @@
     <link href="css/fireworks.css" rel="stylesheet">
 
     <style>
+
+        @import url(http://fonts.googleapis.com/css?family=Roboto:400);
+
         .effect {
             display: none;
         }
 
         body {
             color: white;
-        }
-
-        a {
-            color: white;
+            font-family: 'Roboto', sans-serif;
         }
 
 
         #global-container {
             bottom: 0;
-            font-size: 1.5em;
             left: 0;
             position: fixed;
             right: 0;
@@ -35,7 +34,7 @@
         #global-container .container {
 
             font-weight: bold;
-            margin: 50px auto;
+            margin: 25% auto;
             padding: 16px 32px 16px;
             position: relative;
             width: 70%;
@@ -43,8 +42,13 @@
             text-align: center;
         }
 
+        a {
+            color: white;
+        }
+
+
         h3{
-            font-size: 3em;
+            font-size: 5em;
         }
 
     </style>
@@ -60,56 +64,66 @@
         <div class="effect">
             <h3>Hjelp!</h3>
         </div>
-        <div class="effect" data-time="1000">
+        <div class="effect" data-time="2000">
             <h3>Noen trykket på KNAPPEN</h3>
-            <h3>.</h3>
         </div>
-        <div class="effect" data-time="4000">
+        <div class="effect" data-time="2000">
             <h3>Det kan bare være...</h3>
         </div>
-        <div class="effect" data-time="4000">
+        <div class="effect" data-time="2000">
             <h3>SKATTEDIREKTØREN</h3>
         </div>
-        <div class="effect" data-time="3000">
+        <div class="effect" data-time="2000">
             <h3>HOLTE</h3>
         </div>
         <div class="effect" data-time="4000">
             <h3>HANS CHRISTIAN HOLTE</h3>
         </div>
         <div class="effect">
-            <h3>Bare en ting å gjøre</h3>
+            <h3>Det er bare en ting å gjøre</h3>
         </div>
         <div class="effect">
-            <h3>Vi får starte utrullingsmaskineriet!</h3>
+            <h3>Vi får starte ELSA!</h3>
         </div>
         <div class="effect">
             <h3>Henter koden fra git</h3>
         </div>
-            <div class="effect">
-            <h3>Kompilerer</h3>
+        <div class="effect">
+            <h3>Henter veiledningstekster</h3>
         </div>
         <div class="effect">
-            <h3>Kjører automatiske tester</h3>
+            <h3>Sjekker at alt er i henhold til postlista</h3>
         </div>
         <div class="effect">
-            <h3>Venter på test</h3>
+            <h3>Kjører 5233 automatiske tester</h3>
         </div>
         <div class="effect">
-            <h3>Sender koden til drift</h3>
+            <h3>Bygger leveransepakke</h3>
         </div>
-        <div class="effect ">
-            <h3>Ringer til Grimstad</h3>
-        </div>
-        <div class="effect modem">
-            <h3>... modem dials</h3>
+        <div class="effect" data-time="3000">
+            <h3>Venter på at Heidi sier go</h3>
         </div>
         <div class="effect">
-            <h3>Grimstad sier at alt er klart</h3>
+            <h3>Heidi sier ok!</h3>
         </div>
-        <div class="effect" data-time="2500">
+        <div class="effect modemstart"  data-time="10000">
+            <h3>Sender leveransepakken til drift i Grimstad</h3>
+        </div>
+        <div class="effect">
+            <h3>Vi har kontakt med Grimstad</h3>
+        </div>
+        <div class="effect">
+            <h3>Grimstad har mottatt pakken!</h3>
+        </div>
+        <div class="effect">
+            <h3>Grimstad starter ELSA</h3>
+        </div>
+        <div class="effect">
+            <h3>Grimstad sier at ELSA er live and ready for traffic</h3>
+        </div>
+        <div class="effect modemstop" data-time="2500">
             <img src="websurfin.gif" height="400px"/>
         </div>
-
         <div class="effect">
             <h3>ELSA er klar for hordene!</h3>
         </div>
@@ -125,7 +139,7 @@
 
     </div>
     <div class="container" style="display: none" id="av">
-        <h3>Næringsrapport Skatt 2014 er skrudd av</h3>
+        <h3>ELSA er av</h3>
     </div>
 
 
@@ -136,7 +150,7 @@
 <script type="application/javascript">
 
     var fb = new Firebase("https://intense-fire-5133.firebaseio.com");
-    var status = "ingen";
+    var running = false;
 
     console.log("Starter app");
     fb.on("value", function(data) {
@@ -148,6 +162,7 @@
             start();
         } else {
             console.log("Skiten er av");
+            running = false;
             $('#paa').hide();
             $('#starter').hide();
             $('#av').show();
@@ -158,6 +173,12 @@
     $('body').click(start);
 
     function start(){
+        if(running){
+            return;
+        }
+
+        running = true;
+
         $('#av').hide();
         $('.active').removeClass('active');
         $('#paa').show();
@@ -166,6 +187,10 @@
     }
 
     function aapneNesteEffekt(){
+        if(!running){
+            return;
+        }
+
         var aktive = $('.effect.active');
         var neste, aktiv;
 
@@ -180,13 +205,20 @@
         }
 
         neste.addClass('active');
-        neste.fadeIn()
+        neste.fadeIn();
         var tid = neste.attr('data-time');
 
         timeout = 2000;
 
         if(tid){
             timeout = tid;
+        }
+
+        if(neste.hasClass('modemstart')){
+            document.getElementById('modem_mp3').play();
+        }
+        if(neste.hasClass('modemstop')){
+            document.getElementById('modem_mp3').pause();
         }
 
         if(!neste.hasClass('last')){
