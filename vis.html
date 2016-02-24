@@ -47,9 +47,24 @@
             color: white;
         }
 
+        .circle
+        {
+            width:500px;
+            height:500px;
+            border-radius:50%;
+            font-size:50px;
+            color:#fff;
+            line-height:500px;
+            text-align:center;
+            background:red
+        }
 
         h1,h3{
             font-size: 4em;
+        }
+
+        .hidden {
+            display: none;
         }
 
     </style>
@@ -66,8 +81,8 @@
             <input type=checkbox id=onoff name=onoff onclick="kjor()"/>
             <div class=back>
                 <label class=but for=onoff>
-                    <span class=off>På</span>
-                    <span class=on>Av</span>
+                    <span class=off>START</span>
+                    <span class=on>STOPP</span>
                 </label>
             </div>
         </div>
@@ -82,46 +97,61 @@
             <h3>Oj!</h3>
         </div>
         <div class="effect" data-time="2000">
-            <h3>Noen prøver å skru på ELSA</h3>
+            <h3>Noen har trykket på START</h3>
         </div>
         <div class="effect" data-time="2000">
             <h3>Det kan bare være...</h3>
         </div>
         <div class="effect" data-time="2000">
-            <h3>SKATTEDIREKTØREN</h3>
+            <h3>FINANSMINISTEREN</h3>
+        </div>
+        <div class="effect" data-time="1000">
+            <h3>JENSEN</h3>
+        </div>
+        <div class="effect" data-time="1000">
+            <h3>SIV</h3>
         </div>
         <div class="effect" data-time="2000">
-            <h3>HOLTE</h3>
+            <h3>JENSEN</h3>
         </div>
-        <div class="effect" data-time="4000">
-            <h3>HANS CHRISTIAN HOLTE</h3>
+        <div class="effect" data-time="600">
+            <h3>Da</h3>
         </div>
-        <div class="effect">
-            <h3>Da er det bare en ting å gjøre</h3>
+        <div class="effect" data-time="600">
+            <h3>må</h3>
         </div>
-        <div class="effect">
-            <h3>Vi får rulle ut ELSA!</h3>
+        <div class="effect" data-time="600">
+            <h3>vi</h3>
         </div>
-        <div class="effect">
-            <h3>Steg 1: Bygger koden</h3>
+        <div class="effect" data-time="600">
+            <h3>starte</h3>
         </div>
-        <div class="effect">
-            <h3>Steg 2: Henter veiledningstekster</h3>
+        <div class="effect" data-time="1000">
+            <h3>PROD</h3>
         </div>
-        <div class="effect">
-            <h3>Steg 3: Kjører 5233,5 automatiske tester</h3>
-        </div>
-        <div class="effect">
-            <h3>Steg 4: Sjekker at alt er i henhold til postlista</h3>
-        </div>
-        <div class="effect" data-time="2000">
-            <h3>Alt ser bra ut så langt</h3>
+        <div class="effect" data-time="1000">
+            <h3>!!!</h3>
         </div>
         <div class="effect">
-            <h3>Da lager vi leveransepakke</h3>
+            <h3>1: Bygger koden</h3>
         </div>
         <div class="effect">
-            <h3>Deployer leveransepakken til AT</h3>
+            <h3>2: Mekker veiledningstekster</h3>
+        </div>
+        <div class="effect">
+            <h3>3: Kjører 5233,5 automatiske tester</h3>
+        </div>
+        <div class="effect">
+            <h3>Alt er bra så langt</h3>
+        </div>
+        <div class="effect">
+            <h3>4: Mekker leveransepakke</h3>
+        </div>
+        <div class="effect">
+            <h3>5: Deployer leveransepakken til AT</h3>
+        </div>
+        <div class="effect">
+            <h3>6: Setter opp enda ett nytt MAP-mønster</h3>
         </div>
         <div class="effect" data-time="3000">
             <h3>Venter på at Heidi tester og sier ok</h3>
@@ -132,40 +162,94 @@
         <div class="effect">
             <h3>Heidi sa OK!</h3>
         </div>
+        <div class="effect" data-time="1000">
+            <h3>Da må rådene godkjenne</h3>
+        </div>
+        <div class="effect nofade" data-time="400">
+            <h3>Får godkjenning i<br /> Løsningsråd</h3>
+        </div>
+        <div class="effect nofade" data-time="400">
+            <h3>Får godkjenning i<br /> Kvalitetsråd</h3>
+        </div>
+        <div class="effect nofade" data-time="400">
+            <h3>Får godkjenning i<br /> Kommunikasjonsstabsrådet</h3>
+        </div>
+        <div class="effect nofade" data-time="400">
+            <h3>Får godkjenning i<br /> råd for Intern Kommunikasjon</h3>
+        </div>
+        <div class="effect nofade" data-time="400">
+            <h3>Får godkjenning i<br /> råd for Ekstern Kommunikasjon</h3>
+        </div>
+        <div class="effect nofade" data-time="400">
+            <h3>Får godkjenning i<br /> SITS Avviksråd</h3>
+        </div>
+        <div class="effect nofade" data-time="400">
+            <h3>Får godkjenning i<br /> SKD Avviksråd</h3>
+        </div>
+        <div class="effect nofade" data-time="400">
+            <h3>Får godkjenning i<br /> Myklerådet</h3>
+        </div>
+        <div class="effect nofade" data-time="400">
+            <h3>Får godkjenning i<br /> råd for Generisk Metamodell Skatt</h3>
+        </div>
+        <div class="effect nofade" data-time="400">
+            <h3>Får godkjenning i<br /> Endringsråd</h3>
+        </div>
+        <div class="effect nofade" data-time="400">
+            <h3>Får godkjenning i<br /> Endringsstyringsråd</h3>
+        </div>
+        <div class="effect nofade" data-time="400">
+            <h3>Får godkjenning i<br /> Designrådet</h3>
+        </div>
+        <div class="effect nofade" data-time="400">
+            <h3>Får godkjenning i<br /> Change Management</h3>
+        </div>
+        <div class="effect nofade" data-time="400">
+            <h3>Får godkjenning i<br /> Sjefsrådet</h3>
+        </div>
+        <div class="effect nofade" data-time="300">
+            <h3>Får godkjenning i<br /> ...</h3>
+        </div>
+        <div class="effect nofade" data-time="1000">
+            <h3>Alle godkjenninger på plass (tror vi)</h3>
+        </div>
         <div class="effect modemstart"  data-time="10000">
             <h3>Sender leveransepakken til drift i Grimstad</h3>
         </div>
         <div class="effect">
-            <h3>Vi har kontakt med Grimstad</h3>
+            <h3>Vi har kontakt med tåka i Grimstad</h3>
         </div>
         <div class="effect">
-            <h3>Grimstad har mottatt pakken!</h3>
+            <h3>Leveransepakken er i tåka</h3>
         </div>
         <div class="effect">
-            <h3>Grimstad starter ELSA</h3>
+            <h3>Leveransepakken har nådd skyen</h3>
         </div>
         <div class="effect">
-            <h3>Grimstad sier at ELSA er live and ready for traffic</h3>
+            <h3>Grimstad trykker på START</h3>
         </div>
-        <div class="effect" data-time="2500">
+        <div class="effect">
+            <h3>Grimstad sier at Næringsrapport Skatt er startet</h3>
+        </div>
+        <div class="effect" data-time="2300">
             <img src="websurfin.gif" height="400px"/>
         </div>
         <div class="effect modemstop">
-            <h3>ELSA er klar for hordene!</h3>
+            <h3>Næringsrapport Skatt er klar for hordene!</h3>
         </div>
-        <div class="effect" data-time="3000">
-            <h3>Da er det bare å lene seg godt tilbake og nyte magien!</h3>
+        <div class="effect" data-time="2500">
+            <h3>Da er det bare å lene seg tilbake og nyte magien!</h3>
         </div>
-        <div class="effect fireworks" data-time="4500">
+        <div class="effect fireworks" data-time="4400">
             <img src="elsa.gif" height="400px" />
         </div>
         <div class="effect box last">
-            <h3><a href="https://skatt.skatteetaten.no/web/elsa/">ELSA er herved erklært for åpnet!!</a></h3>
+            <h3><a href="https://skatt.skatteetaten.no/web/elsa/">Vi er i PROD</a></h3>
         </div>
 
     </div>
     <div class="container" style="display: none" id="av">
-        <h3>ELSA er skrudd av</h3>
+        <h3>Næringsrapport Skatt er STOPPET</h3>
     </div>
 
 
@@ -177,6 +261,7 @@
 
     var fb = new Firebase("https://intense-fire-5133.firebaseio.com");
     var running = false;
+    var startTime, stopTime;
 
     console.log("Starter app");
     fb.on("value", function(data) {
@@ -193,8 +278,11 @@
     function skrupaa(erPaa){
         if(erPaa){
             console.log("Skiten er på");
+            startTime = Date.now();
             $('#onoff').prop('checked', true);
             $('.round').addClass('green');
+            $('#status').toggleClass('yellow');
+
 
             start();
         } else {
@@ -208,6 +296,20 @@
             $('#starter').hide();
             $('.effect').hide();
             $('#av').show();
+
+            stoppLyd('ding_mp3');
+            stoppLyd('modem_mp3');
+            stoppLyd('modem_mp3');
+            stoppLyd('fireworks_mp3');
+
+        }
+    }
+
+    function stoppLyd(id) {
+        var el = document.getElementById(id);
+
+        if(el) {
+            el.pause();
         }
     }
 
@@ -245,25 +347,32 @@
         }
 
         neste.addClass('active');
-        neste.fadeIn();
+        if(neste.hasClass('nofade')) {
+            neste.show();
+        } else {
+            neste.fadeIn();
+        }
+
         var tid = neste.attr('data-time');
 
-        timeout = 2000;
-
+        timeout = 1500;
         if(tid){
             timeout = tid;
         }
 
         if(neste.hasClass('ding')){
+            document.getElementById('ding_mp3').currentTime = 0;
             document.getElementById('ding_mp3').play();
         }
         if(neste.hasClass('modemstart')){
+            document.getElementById('modem_mp3').currentTime = 0;
             document.getElementById('modem_mp3').play();
         }
         if(neste.hasClass('modemstop')){
             document.getElementById('modem_mp3').pause();
         }
         if(neste.hasClass('fireworks')){
+            document.getElementById('fireworks_mp3').currentTime = 0;
             document.getElementById('fireworks_mp3').play();
         }
 
@@ -271,6 +380,10 @@
             window.setTimeout(aapneNesteEffekt, timeout);
         } else {
             Fireworks.initialize();
+            stopTime = Date.now();
+            var brukt = (stopTime - startTime)/1000;
+
+            console.log("Kjøringa tok " + brukt + "s");
 
             window.setTimeout(fyr, 2000);
         }
