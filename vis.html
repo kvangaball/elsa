@@ -330,12 +330,12 @@
 
     var banger = 0;
     function fyr(){
-        if(banger > 20) {
+        if(banger > 30) {
             var vol = document.getElementById('fireworks_mp3').volume;
             document.getElementById('fireworks_mp3').volume = vol - (vol * 0.2);
         }
 
-        if(banger > 25) {
+        if(banger > 35) {
             document.getElementById('fireworks_mp3').pause();
             document.getElementById('fireworks_mp3').currentTime = 0;
             return;
