@@ -99,41 +99,41 @@
         <div class="effect" data-time="2000">
             <h3>Det kan bare være...</h3>
         </div>
-        <div class="effect" data-time="2500">
+        <div class="effect" data-time="2000">
             <h3>FINANSMINISTEREN</h3>
         </div>
-        <div class="effect" data-time="1500">
+        <div class="effect" data-time="1200">
             <h3>JENSEN</h3>
         </div>
-        <div class="effect" data-time="1000">
+        <div class="effect" data-time="800">
             <h3>SIV</h3>
         </div>
-        <div class="effect" data-time="2000">
+        <div class="effect" data-time="1200">
             <h3>JENSEN</h3>
         </div>
-        <div class="effect" data-time="600">
+        <div class="effect" data-time="500">
             <h3>Da</h3>
         </div>
-        <div class="effect" data-time="600">
+        <div class="effect" data-time="500">
             <h3>må</h3>
         </div>
-        <div class="effect" data-time="600">
+        <div class="effect" data-time="500">
             <h3>vi</h3>
         </div>
-        <div class="effect" data-time="600">
+        <div class="effect" data-time="500">
             <h3>starte</h3>
         </div>
         <div class="effect" data-time="1000">
             <h3>ELSA</h3>
         </div>
-        <div class="effect" data-time="1000">
+        <div class="effect" data-time="2500">
             <h3>!!!</h3>
         </div>
-        <div class="effect">
+        <div class="effect modemstart">
             <h3>Bygger koden</h3>
         </div>
         <div class="effect">
-            <h3>Mekker veiledningstekster</h3>
+            <h3>Henter veiledningstekster</h3>
         </div>
         <div class="effect">
             <h3>Kjører 5233,5 automatiske tester</h3>
@@ -144,53 +144,50 @@
         <div class="effect">
             <h3>Alt ser bra ut</h3>
         </div>
-        <div class="effect" data-time="2000">
-            <h3>Venter på at Heidi tester og sier ok</h3>
-        </div>
-        <div class="effect" data-time="2000">
+        <div class="effect" data-time="1500">
             <img src="images/heidi_go.png" height="400px"/>
         </div>
         <div class="effect">
-            <h3>Heidi sa OK!</h3>
+            <h3>Test sier OK!</h3>
         </div>
         <div class="effect">
             <h3>... og alle råd er enige</h3>
         </div>
-        <div class="effect modemstart"  data-time="3000">
+        <div class="effect"  data-time="2000">
             <h3>ELSA kan startes</h3>
         </div>
-        <div class="effect" data-time="2000">
-            <h3>Leveransepakken sendes til Grimstad </h3>
+        <div class="effect" data-time="1000">
+            <h3>Leveransen sendes til drift</h3>
         </div>
         <div class="effect">
-            <h3>Leveransepakken pakkes ut</h3>
+            <h3>Leveransen pakkes ut</h3>
         </div>
-        <div class="effect" data-time="4000">
+        <div class="effect" data-time="2000">
             <h3>ELSA starter opp</h3>
         </div>
-        <div class="effect" data-time="2000">
-            <h3>Grimstad rapporterer at Næringsrapport Skatt er startet</h3>
+        <div class="effect" data-time="1000">
+            <h3>Grimstad rapporterer at ELSA er startet</h3>
         </div>
-        <div class="effect" data-time="2000">
-            <h3>Grimstad rapporterer at brannmurer er åpnet</h3>
+        <div class="effect" data-time="1000">
+            <h3>Grimstad rapporterer at brannmur er åpen</h3>
         </div>
         <div class="effect modemstop">
-            <h3>ELSA er klar</h3>
+            <h3>ELSA er klar for trafikk</h3>
+        </div>
+        <div class="effect">
+            <h3>Hordene kan komme</h3>
         </div>
         <div class="effect fireworks" data-time="4400">
             <img src="elsa.gif" height="400px" />
         </div>
-        <div class="effect">
-            <h3>Da kan hordene begynne utfyllingen av Næringsrapport Skatt</h3>
-        </div>
         <div class="effect last" data-time="3000">
-            <h3>ELSA er ÅPEN</h3>
+            <h3>Næringsrapport Skatt er ÅPEN</h3>
             <h4>Altinn åpner om <span id="altinn"></span></h4>
         </div>
 
     </div>
     <div class="container" style="display: none" id="av">
-        <h3>ELSA er STOPPET</h3>
+        <h3>Næringsrapport Skatt er STENGT</h3>
     </div>
 
 
@@ -333,10 +330,12 @@
 
     var banger = 0;
     function fyr(){
-        if(banger > 100) {
+        if(banger > 50) {
+            document.getElementById('fireworks_mp3').pause();
             return;
         }
         banger++;
+        console.log('bang' + banger);
         Fireworks.createParticle();
 
         var lenge = Math.round(Math.random()*1500) + 1;
@@ -344,9 +343,8 @@
         window.setTimeout(fyr, lenge);
     }
 
-
     var aapning = new Date(2016, 2, 31, 0, 0, 0);
-    var altinn = document.getElementById("altinn")
+    var altinn = document.getElementById("altinn");
     function altinnKlokka() {
 
         var now = new Date();
@@ -354,23 +352,15 @@
 
         var timer = Math.floor(diff / (1000 * 60 * 60));
         diff = diff - timer * (1000 * 3600);
-
         var minutter = Math.floor(diff / (1000 * 60));
         diff = diff - minutter * (1000 * 60);
-
         var sekunder = Math.floor(diff / (1000));
-        diff = diff - sekunder * (1000);
 
-        var string = timer + ' timer, ' + minutter + 'minutter, ' + sekunder + ' sekunder';
-        console.log(string);
+        var string = timer + ' timer, ' + minutter + ' minutter, ' + sekunder + ' sekunder';
         altinn.innerHTML = string;
 
         window.setTimeout(altinnKlokka, 333);
     }
-
-
-
-
 
 </script>
 
