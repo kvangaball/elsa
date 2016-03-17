@@ -18,11 +18,23 @@
         }
 
         body {
-            color: white;
             font-family: 'Roboto', sans-serif;
-            background: #000;
+            background-color: #000;
         }
 
+        #folk {
+            position: fixed;
+            background-repeat: no-repeat;
+            background-image: url(images/folk.png);
+            background-position: bottom;
+            background-size: 40%;
+            height: 100%;
+            width: 100%;
+        }
+
+        h4 {
+            font-size: 2em;
+        }
 
         #global-container {
             bottom: 0;
@@ -47,24 +59,8 @@
             color: white;
         }
 
-        .circle
-        {
-            width:500px;
-            height:500px;
-            border-radius:50%;
-            font-size:50px;
-            color:#fff;
-            line-height:500px;
-            text-align:center;
-            background:red
-        }
-
         h1,h3{
             font-size: 4em;
-        }
-
-        .hidden {
-            display: none;
         }
 
     </style>
@@ -74,6 +70,7 @@
 <body>
 
 <section id="fireworks"></section>
+<section id="folk"></section>
 
 <section>
     <div class="container">
@@ -127,7 +124,7 @@
             <h3>starte</h3>
         </div>
         <div class="effect" data-time="1000">
-            <h3>PROD</h3>
+            <h3>ELSA</h3>
         </div>
         <div class="effect" data-time="1000">
             <h3>!!!</h3>
@@ -142,16 +139,10 @@
             <h3>Kjører 5233,5 automatiske tester</h3>
         </div>
         <div class="effect">
-            <h3>Alt er bra</h3>
+            <h3>Lager leveransepakke</h3>
         </div>
         <div class="effect">
-            <h3>Setter sammen en leveransepakke</h3>
-        </div>
-        <div class="effect">
-            <h3>Deployer leveransepakken til AT</h3>
-        </div>
-        <div class="effect">
-            <h3>Setter opp enda ett nytt MAP-mønster</h3>
+            <h3>Alt ser bra ut</h3>
         </div>
         <div class="effect" data-time="2000">
             <h3>Venter på at Heidi tester og sier ok</h3>
@@ -162,103 +153,44 @@
         <div class="effect">
             <h3>Heidi sa OK!</h3>
         </div>
-        <div class="effect" data-time="1000">
-            <h3>Da må rådene godkjenne</h3>
-        </div>
-        <div class="effect nofade" data-time="400">
-            <h3>Får godkjenning i<br /> Løsningsråd</h3>
-        </div>
-        <div class="effect nofade" data-time="400">
-            <h3>Får godkjenning i<br /> Kvalitetsråd</h3>
-        </div>
-        <div class="effect nofade" data-time="400">
-            <h3>Får godkjenning i<br /> Kommunikasjonsstabsrådet</h3>
-        </div>
-        <div class="effect nofade" data-time="400">
-            <h3>Får godkjenning i<br /> råd for Intern Kommunikasjon</h3>
-        </div>
-        <div class="effect nofade" data-time="400">
-            <h3>Får godkjenning i<br /> råd for Ekstern Kommunikasjon</h3>
-        </div>
-        <div class="effect nofade" data-time="400">
-            <h3>Får godkjenning i<br /> SITS Avviksråd</h3>
-        </div>
-        <div class="effect nofade" data-time="400">
-            <h3>Får godkjenning i<br /> SKD Avviksråd</h3>
-        </div>
-        <div class="effect nofade" data-time="400">
-            <h3>Får godkjenning i<br /> Myklerådet</h3>
-        </div>
-        <div class="effect nofade" data-time="400">
-            <h3>Får godkjenning i<br /> råd for Generisk Metamodell Skatt</h3>
-        </div>
-        <div class="effect nofade" data-time="400">
-            <h3>Får godkjenning i<br /> Endringsråd</h3>
-        </div>
-        <div class="effect nofade" data-time="400">
-            <h3>Får godkjenning i<br /> Endringsstyringsråd</h3>
-        </div>
-        <div class="effect nofade" data-time="400">
-            <h3>Får godkjenning i<br /> Designrådet</h3>
-        </div>
-        <div class="effect nofade" data-time="400">
-            <h3>Får godkjenning i<br /> Change Management</h3>
-        </div>
-        <div class="effect nofade" data-time="400">
-            <h3>Får godkjenning i<br /> Sjefsrådet</h3>
-        </div>
-        <div class="effect nofade" data-time="300">
-            <h3>Får godkjenning i<br /> ...</h3>
-        </div>
-        <div class="effect nofade" data-time="1000">
-            <h3>Alle godkjenninger på plass (tror vi)</h3>
+        <div class="effect">
+            <h3>... og alle råd er enige</h3>
         </div>
         <div class="effect modemstart"  data-time="3000">
-            <h3>Leveransepakken sendes til Grimstad</h3>
+            <h3>ELSA kan startes</h3>
+        </div>
+        <div class="effect" data-time="2000">
+            <h3>Leveransepakken sendes til Grimstad </h3>
         </div>
         <div class="effect">
-            <h3>Vi har kontakt med tåka i Grimstad</h3>
+            <h3>Leveransepakken pakkes ut</h3>
         </div>
-        <div class="effect">
-            <h3>Leveransepakken er i tåka</h3>
+        <div class="effect" data-time="4000">
+            <h3>ELSA starter opp</h3>
         </div>
-        <div class="effect">
-            <h3>Leveransepakken er i skyen</h3>
-        </div>
-        <div class="effect">
-            <h3>Leveransepakken er fremme i Grimstad</h3>
-        </div>
-        <div class="effect">
-            <h3>Grimstad trykker på START</h3>
-        </div>
-        <div class="effect">
+        <div class="effect" data-time="2000">
             <h3>Grimstad rapporterer at Næringsrapport Skatt er startet</h3>
         </div>
-        <div class="effect">
-            <h3>Grimstad rapporterer at F5 er åpnet</h3>
-        </div>
-        <div class="effect" data-time="2300">
-            <img src="websurfin.gif" height="400px"/>
+        <div class="effect" data-time="2000">
+            <h3>Grimstad rapporterer at brannmurer er åpnet</h3>
         </div>
         <div class="effect modemstop">
-            <h3>Næringsrapport Skatt er klar for hordene!</h3>
-        </div>
-        <div class="effect" data-time="3000">
-            <img src="images/folk.png" height="800px"/>
-        </div>
-        <div class="effect nofade" data-time="1500">
-            <h3>Da er det bare å lene seg tilbake og nyte magien!</h3>
+            <h3>ELSA er klar</h3>
         </div>
         <div class="effect fireworks" data-time="4400">
             <img src="elsa.gif" height="400px" />
         </div>
-        <div class="effect box last">
-            <h3><a href="https://skatt.skatteetaten.no/web/elsa/">Vi er i PROD</a></h3>
+        <div class="effect">
+            <h3>Da kan hordene begynne utfyllingen av Næringsrapport Skatt</h3>
+        </div>
+        <div class="effect last" data-time="3000">
+            <h3>ELSA er ÅPEN</h3>
+            <h4>Altinn åpner om <span id="altinn"></span></h4>
         </div>
 
     </div>
     <div class="container" style="display: none" id="av">
-        <h3>Næringsrapport Skatt er STOPPET</h3>
+        <h3>ELSA er STOPPET</h3>
     </div>
 
 
@@ -379,6 +311,7 @@
         }
         if(neste.hasClass('modemstop')){
             document.getElementById('modem_mp3').pause();
+            altinnKlokka();
         }
         if(neste.hasClass('fireworks')){
             document.getElementById('fireworks_mp3').currentTime = 0;
@@ -398,14 +331,44 @@
         }
     }
 
+    var banger = 0;
     function fyr(){
-        console.log("bang");
+        if(banger > 100) {
+            return;
+        }
+        banger++;
         Fireworks.createParticle();
 
         var lenge = Math.round(Math.random()*1500) + 1;
 
         window.setTimeout(fyr, lenge);
     }
+
+
+    var aapning = new Date(2016, 2, 31, 0, 0, 0);
+    var altinn = document.getElementById("altinn")
+    function altinnKlokka() {
+
+        var now = new Date();
+        var diff = aapning - now;
+
+        var timer = Math.floor(diff / (1000 * 60 * 60));
+        diff = diff - timer * (1000 * 3600);
+
+        var minutter = Math.floor(diff / (1000 * 60));
+        diff = diff - minutter * (1000 * 60);
+
+        var sekunder = Math.floor(diff / (1000));
+        diff = diff - sekunder * (1000);
+
+        var string = timer + ' timer, ' + minutter + 'minutter, ' + sekunder + ' sekunder';
+        console.log(string);
+        altinn.innerHTML = string;
+
+        window.setTimeout(altinnKlokka, 333);
+    }
+
+
 
 
 
